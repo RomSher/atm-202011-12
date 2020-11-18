@@ -4,6 +4,12 @@ public class CashDispenser {
 
     private boolean inService;
     private boolean noBusy;
-    private CashRegister[] cashRegisters; //количество кассет
+    private int cashInsert;
+
+    public CashDispenser(boolean inService, boolean noBusy, int cashInto) {
+        this.inService = inService;
+        this.noBusy = noBusy;
+        this.cashInsert = cashInto;
+    }
 
 }

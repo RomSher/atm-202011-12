@@ -8,4 +8,8 @@ public class Display {
     }
     public void showOk(){
     }
+
+    public Display(boolean inService) {
+        this.inService = inService;
+    }
 }

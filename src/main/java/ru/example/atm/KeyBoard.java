@@ -6,10 +6,14 @@ public class KeyBoard {
     private boolean noBusy;
 
     public String readPinCode(){
-       return pinCode;
+        return "1234";
     }
     public String readSumma(){
-        return Summa;
+        return "1000";
     }
 
+    public KeyBoard(boolean inService, boolean noBusy) {
+        this.inService = inService;
+        this.noBusy = noBusy;
+    }
 }

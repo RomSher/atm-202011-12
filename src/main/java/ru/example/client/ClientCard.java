@@ -5,9 +5,10 @@ public class ClientCard {
     private String cardExp;
     private String cardPin;
 
-    //вызываем методы класса CardRider и KeyBoard, получаем новый объект
 
-    public String getNewCard() {
-       return newCard;
+    public ClientCard(String cardPAN, String cardExp, String cardPin) {
+        this.cardPAN = cardPAN;
+        this.cardExp = cardExp;
+        this.cardPin = cardPin;
     }
 }
