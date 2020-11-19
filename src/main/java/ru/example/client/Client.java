@@ -6,10 +6,19 @@ public class Client {
     private ClientCard clientCard; //связываем карту с клиентом
 
 
-
     public Client(String clientID, ClientCard clientCard) {
         this.clientID = clientID;
         this.clientCard = clientCard;
     }
+
+
+    public String getClientID() {
+        return clientID;
+    }
+
+    public ClientCard getClientCard() {
+        return clientCard;
+    }
 }
+
 

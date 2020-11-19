@@ -7,9 +7,11 @@ public class CardRider {
     private boolean inService;
     private boolean noBusy;
 
-    public ClientCard readCard(){
-        ClientCard card1 = new ClientCard("1111111111111","112020","1234");
-    return card1;
+    public String readCardPAN(){
+        return "111111111111";
+    }
+    public String readCardExp(){
+        return "110202";
     }
 
     public CardRider(boolean inService, boolean noBusy) {
