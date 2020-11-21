@@ -1,13 +1,11 @@
 package ru.example.atm;
 
-//денежные кассеты
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
+@AllArgsConstructor
 public class CashRegister {
-    private int nominal;
-    private int capacity;
-
-    public CashRegister(int nominal, int capacity) {
-        this.nominal = nominal;
-        this.capacity = capacity;
-    }
+    String nominal;
+    Cash sum;
 }

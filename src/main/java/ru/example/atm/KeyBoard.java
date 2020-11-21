@@ -1,19 +1,18 @@
 package ru.example.atm;
 
-public class KeyBoard {
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-    private boolean inService;
-    private boolean noBusy;
+@Data
+@AllArgsConstructor
+public class KeyBoard {
+    boolean inService;
+    boolean noBusy;
 
     public String readPinCode(){
         return "1234";
     }
-    public String readSumma(){
-        return "1000";
-    }
-
-    public KeyBoard(boolean inService, boolean noBusy) {
-        this.inService = inService;
-        this.noBusy = noBusy;
+    public Cash readSumma(){
+        return new Cash(1000,"RUR");
     }
 }

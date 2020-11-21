@@ -1,15 +1,15 @@
 package ru.example.atm;
 
-public class Display {
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-    private boolean inService;
+@Data
+@AllArgsConstructor
+public class Display {
+    boolean inService;
 
     public void showErrors(){
     }
     public void showOk(){
-    }
-
-    public Display(boolean inService) {
-        this.inService = inService;
     }
 }

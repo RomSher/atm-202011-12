@@ -1,24 +1,13 @@
 package ru.example.client;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class Client {
-
-    private String clientID;
-    private ClientCard clientCard; //связываем карту с клиентом
-
-
-    public Client(String clientID, ClientCard clientCard) {
-        this.clientID = clientID;
-        this.clientCard = clientCard;
-    }
-
-
-    public String getClientID() {
-        return clientID;
-    }
-
-    public ClientCard getClientCard() {
-        return clientCard;
-    }
+    String clientID;
+    ClientCard clientCard;
 }
 
 
