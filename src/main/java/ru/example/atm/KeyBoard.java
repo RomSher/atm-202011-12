@@ -6,13 +6,13 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class KeyBoard {
-    boolean inService;
-    boolean noBusy;
+    private boolean inService;
+    private boolean noBusy;
 
     public String readPinCode(){
         return "1234";
     }
     public Cash readSumma(){
-        return new Cash(1000,"RUR");
+           return new Cash(1000,"RUR");
     }
 }

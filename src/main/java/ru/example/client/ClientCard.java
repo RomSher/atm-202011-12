@@ -4,10 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class ClientCard {
-    String cardPAN;
-    String cardExp;
-    String cardPin;
+    private String cardPAN;
+    private String cardExp;
+    private String cardPin;
+
+    public ClientCard(String cardPAN, String cardExp) {
+        this.cardPAN = cardPAN;
+        this.cardExp = cardExp;
+    }
 }
 

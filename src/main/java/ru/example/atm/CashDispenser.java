@@ -6,7 +6,8 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class CashDispenser {
-    boolean inService;
-    boolean noBusy;
-    CashRegister cashInATM;
+    private boolean inService;
+    private boolean noBusy;
+    private CashRegister cashRegister1;
+    private CashRegister cashRegister2;
 }

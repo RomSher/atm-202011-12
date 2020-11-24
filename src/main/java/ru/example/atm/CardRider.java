@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class CardRider {
-    boolean inService;
-    boolean noBusy;
+    private boolean inService;
+    private boolean noBusy;
 
     public String readCardPAN(){
         return "1111222233334444";

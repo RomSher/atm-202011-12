@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Cash {
-    int sum;
-    String val;
+    private int sum;
+    private String val;
 }

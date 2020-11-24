@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Display {
-    boolean inService;
+    private boolean inService;
 
     public void showErrors(){
     }
