@@ -7,7 +7,7 @@ import ru.example.client.Client;
 @Data
 @AllArgsConstructor
 public class Transaction {
-    private String transactionID;
+    private String ID;
     private Client client;
     private Cash cash;
 }

@@ -5,13 +5,13 @@ import lombok.Data;
 
 @Data
 public class Client {
-    private String clientID;
+    private String ID;
     private String firstName; //будет ответ из бэкэнда с ФИО
     private String lastName;
     private ClientCard clientCard;
 
     public Client(String clientID, ClientCard clientCard) {
-        this.clientID = clientID;
+        this.ID = clientID;
         this.clientCard = clientCard;
     }
 }

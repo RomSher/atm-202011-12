@@ -18,8 +18,7 @@ public class Main{
         System.out.println("ATM is ready.");
         System.out.println();
         System.out.println("Вставьте карту:");
-        ClientCard card1 = new ClientCard(cardrider1.readCardPAN(), cardrider1.readCardExp());
-        System.out.println(card1.toString());
+        ClientCard card1 = cardrider1.readCard();
         System.out.println("Введите PIN: ");
         card1.setCardPin(keyboard1.readPinCode());
         System.out.println(card1.getCardPin());
@@ -30,6 +29,6 @@ public class Main{
         System.out.println(transaction1.getCash());
         System.out.println();
 
-        System.out.println(transaction1.toString());
+        System.out.println(transaction1);
     }
 }
