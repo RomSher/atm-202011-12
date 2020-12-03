@@ -1,15 +1,13 @@
 package ru.example.atm;
 
-public class CashDispenser {
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
+@AllArgsConstructor
+public class CashDispenser {
     private boolean inService;
     private boolean noBusy;
-    private int cashInsert;
-
-    public CashDispenser(boolean inService, boolean noBusy, int cashInto) {
-        this.inService = inService;
-        this.noBusy = noBusy;
-        this.cashInsert = cashInto;
-    }
-
+    private CashRegister cashRegister1;
+    private CashRegister cashRegister2;
 }

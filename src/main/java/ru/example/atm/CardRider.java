@@ -1,22 +1,18 @@
 package ru.example.atm;
 
-import ru.example.client.ClientCard;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
+@AllArgsConstructor
 public class CardRider {
-
     private boolean inService;
     private boolean noBusy;
 
     public String readCardPAN(){
-        return "111111111111";
+        return "1111222233334444";
     }
     public String readCardExp(){
-        return "110202";
+        return "112020";
     }
-
-    public CardRider(boolean inService, boolean noBusy) {
-        this.inService = inService;
-        this.noBusy = noBusy;
-    }
-
 }
