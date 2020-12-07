@@ -6,12 +6,12 @@ import lombok.Data;
 @Data
 public class Client {
     private String ID;
-    private String firstName; //будет ответ из бэкэнда с ФИО
+    private String firstName;
     private String lastName;
     private ClientCard clientCard;
 
-    public Client(String clientID, ClientCard clientCard) {
-        this.ID = clientID;
+    public Client(ClientCard clientCard) {
+        this.ID = "0000000000";
         this.clientCard = clientCard;
     }
 }
