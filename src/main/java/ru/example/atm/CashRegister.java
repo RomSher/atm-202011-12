@@ -7,5 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class CashRegister {
     private String nominal;
-    private Cash sum;
+    private Currency currency;
+    private int banknotes;
 }

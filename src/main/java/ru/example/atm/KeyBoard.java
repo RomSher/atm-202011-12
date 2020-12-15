@@ -12,7 +12,8 @@ public class KeyBoard {
     public String readPinCode(){
         return "1234";
     }
+
     public Cash readSumma(){
-           return new Cash(1000,"RUR");
+           return new Cash(1000,Currency.RUR);
     }
 }

@@ -7,5 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class Cash {
     private int sum;
-    private String val;
+    private Currency val;
 }
