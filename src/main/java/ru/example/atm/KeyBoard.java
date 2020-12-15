@@ -14,6 +14,6 @@ public class KeyBoard {
     }
 
     public Cash readSumma(){
-           return new Cash(1000,Currency.RUR);
+           return new Cash(4000,Currency.RUR);
     }
 }

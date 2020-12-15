@@ -2,7 +2,6 @@ package ru.example;
 
 import ru.example.atm.Atm;
 import ru.example.client.*;
-import ru.example.processing.*;
 import java.util.Scanner;
 
 public class Main{
