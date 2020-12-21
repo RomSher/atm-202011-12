@@ -1,11 +1,11 @@
 package ru.example.client;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
-
+import lombok.ToString;
 import java.time.LocalDate;
 
 @Getter
+@ToString
 @AllArgsConstructor
 public class ClientCard{
     private final String cardPAN;
@@ -15,10 +15,10 @@ public class ClientCard{
     public ClientCard(String cardPAN, LocalDate cardExp) throws ClientCardFormatException{
         if (cardPAN.matches("^[0-9]{16,18}$")){
             this.cardPAN = cardPAN;
+            this.cardExp = cardExp;
         }
         else throw new ClientCardFormatException("Номер карты некорректный.");
-        this.cardExp = cardExp;
-    }
+     }
 
     public void setCardPin(String cardPin) throws ClientCardFormatException{
         if (cardPin.matches("^[0-9]{4}$")){
@@ -26,14 +26,5 @@ public class ClientCard{
         }
         else throw new ClientCardFormatException("Пин код должен состоять из 4 цифр. Введенный пин некоррекный");
         }
-
-    @Override
-    public String toString() {
-        return "ClientCard{" +
-                "cardPAN='" + cardPAN + '\'' +
-                ", cardExp=" + cardExp +
-                ", cardPin='" + cardPin + '\'' +
-                '}';
-    }
 }
 

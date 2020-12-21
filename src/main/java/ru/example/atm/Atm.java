@@ -3,14 +3,9 @@ package ru.example.atm;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.example.client.Client;
-import ru.example.client.ClientCard;
-import ru.example.client.ClientCardFormatException;
-import ru.example.processing.ClientAccount;
-import ru.example.processing.Exceptions.CardNotFoundException;
-import ru.example.processing.Exceptions.ClientBalanceIsLowException;
-import ru.example.processing.TempOperations;
-
+import ru.example.client.*;
+import ru.example.processing.Exceptions.*;
+import ru.example.processing.*;
 import java.util.ArrayList;
 
 @AllArgsConstructor
@@ -33,7 +28,7 @@ public class Atm {
         return atm;
     }
 
-    public Status giveMoney() throws ClientCardFormatException {
+    public void giveMoney() {
         try {
             Atm atm = startAtm();
             System.out.println("Вставьте карту:");
@@ -47,29 +42,22 @@ public class Atm {
             Cash sum = atm.getKeyBoard().readSumma();
             System.out.println(sum.toString());
             Transaction transaction = new Transaction("0000000001", client1, sum);
-            ArrayList<ClientAccount> accounts = ClientAccount.createAccounts();
+            ArrayList<ClientAccount> accounts = new TempOperations().createAccounts();
 
-            if (new TempOperations().findClientByCard(transaction, accounts) < 0) {
-            } else {
-                ClientAccount clientAccount = accounts.get(new TempOperations().findClientByCard(transaction, accounts));
+            ClientAccount clientAccount = accounts.get(new TempOperations().findClientByCard(transaction, accounts));
+            System.out.println();
+            System.out.println("Здравствуйте "+ clientAccount.getLastName()+" "+clientAccount.getFirstName());
+
+            if (new TempOperations().checkCardBalance(transaction, clientAccount) == Status.SUCCESS) {
                 System.out.println();
-                System.out.println("Здравствуйте "+ clientAccount.getLastName()+" "+clientAccount.getFirstName());
-                if (new TempOperations().checkCardBalance(transaction, clientAccount) == Status.SUCCESS) {
-                    System.out.println();
-                    System.out.println("Ваш первоначальный баланс: "+clientAccount.getBalance().toString());
-                    new TempOperations().decreaseBalance(transaction, clientAccount);
-                    System.out.println();
-                    System.out.println("Остаток наличных: "+clientAccount.getBalance().toString());
-                    System.out.println();
-                }
-                return Status.SUCCESS;
+                System.out.println("Ваш первоначальный баланс: "+clientAccount.getBalance().toString());
+                new TempOperations().decreaseBalance(transaction, clientAccount);
+                System.out.println();
+                System.out.println("Остаток наличных: "+clientAccount.getBalance().toString());
+                System.out.println();
             }
-
-        } catch (CardNotFoundException e) {
-            e.printStackTrace();
-        } catch (ClientBalanceIsLowException e) {
-            e.printStackTrace();
+        } catch (CardNotFoundException | ClientCardFormatException | ClientBalanceIsLowException e) {
+            System.out.println(e);
         }
-        return Status.ERROR;
     }
 }
