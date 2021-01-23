@@ -3,6 +3,8 @@ package ru.example.atm;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 @AllArgsConstructor
 public class KeyBoard {
@@ -14,6 +16,6 @@ public class KeyBoard {
     }
 
     public Cash readSumma(){
-           return new Cash(4000,Currency.RUR);
+           return new Cash(new BigDecimal(40000),Currency.RUR);
     }
 }
