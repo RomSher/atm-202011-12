@@ -3,7 +3,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 
 @Getter
@@ -11,11 +11,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Account {
     @NotNull(message = "Card number cannot be null")
+    @Pattern(regexp = "^(\\d{16,18})$")
     private String cardPAN;
     @NotNull(message = "Data expiration cannot be null")
     private LocalDate cardExp;
     @NotNull(message = "Pin cannot be null")
-    @Size(min = 4,max = 4)
+    @Pattern(regexp = "^(\\d{4})$")
     private String cardPin;
 
     public Account(String cardPAN, LocalDate cardExp){
