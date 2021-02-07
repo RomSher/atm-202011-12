@@ -1,18 +1,18 @@
 package ru.example;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.example.atm.Atm;
-import ru.example.client.*;
 import ru.example.processing.CustomerAccount;
 import ru.example.processing.TempOperations;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main{
 
     public static void main(String[] args) {
-        Atm atm = new Atm().startAtm();
-        ArrayList<CustomerAccount> accounts = new TempOperations().createAccounts();
+        AnnotationConfigApplicationContext a = new AnnotationConfigApplicationContext(ContextConfiguration.class);
+        Atm atm = a.getBean(Atm.class);
+        ArrayList<CustomerAccount> base = new TempOperations().createBase();
         Scanner s = new Scanner(System.in);
         String reader;
         do {
@@ -20,7 +20,7 @@ public class Main{
             reader = s.nextLine();
             switch (reader) {
                 case "1":
-                    atm.giveMoney(atm,accounts);
+                    atm.giveMoney(atm, base);
                     break;
             }
         }

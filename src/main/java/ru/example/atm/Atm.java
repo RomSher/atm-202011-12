@@ -20,25 +20,15 @@ public class Atm {
     private KeyBoard keyBoard;
     public HashSet<Account> doubleRequest;
 
-    public Atm startAtm() {
-        CashDispenser cashDispenser1 = new CashDispenser(true, true, new CashRegister("100", Currency.RUR, 500), new CashRegister("1000", Currency.RUR, 500));
-        CardRider cardrider1 = new CardRider(true, true);
-        KeyBoard keyboard1 = new KeyBoard(true, true);
-        Atm atm = new Atm(cardrider1, cashDispenser1, keyboard1, new HashSet<>());
-        ArrayList<CustomerAccount> accounts = new TempOperations().createAccounts();
-        log.info("ATM is ready.");
-        return atm;
-    }
-
     public void giveMoney(Atm atm,ArrayList<CustomerAccount> accounts) {
         try {
             Account card1 = atm.getCardRider().readCard();
             card1.setCardPin(atm.getKeyBoard().readPinCode());
             log.info("Карта: "+card1.toString());
-            Client client1 = new Client(card1);
+            Client client = new Client(card1);
             Cash sum = atm.getKeyBoard().readSumma();
             log.info("Запрошено: "+sum.toString());
-            Transaction transaction = new Transaction("1", client1, sum);
+            Transaction transaction = new Transaction("1", client, sum);
             new TempOperations().checkAccExp(transaction);
             new TempOperations().checkDoubleRequest(transaction,atm);
 
@@ -47,7 +37,7 @@ public class Atm {
             log.info("Первоначальный баланс: "+ customerAccount.getBalance().toString());
 
             Status result = new TempOperations().decreaseBalance(transaction, customerAccount);
-            log.info(result + " Остаток после операции: "+ customerAccount.getBalance().toString());
+            log.info(result + "Остаток после операции: "+ customerAccount.getBalance().toString());
 
         } catch (CardNotFoundException | ClientCardFormatException | ClientBalanceException e) {
             log.info(Status.ERROR+" "+e.getMessage());
